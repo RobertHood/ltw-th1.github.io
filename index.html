@@ -16,17 +16,15 @@
 <body>
     <div class="sign-in">
         <button onclick="window.location.href='tracno.html'">to tracno</button>
-        
         <div id= "login-box" class="form-box loginbox">
             <h2>Welcome</h2>
-                <form>
+                <form action="tracno.html" method="get" onsubmit="survey(event)">
                 <!--input field-->
                 <div class="inputbox">
-                    <input id="name" class="username" name="signin" placeholder="Name">
+                    <input id="name" class="username" name="name" placeholder="Name">
                     <input id="dob" type="date" class="dob" name="dob" placeholder="Date-of-birth">
                     <input id="id-number" class="id-number" name="id-number" placeholder="ID-Number">
                     <input id="address" type="text" class="address" name="address" placeholder="Address">
-                    
                 </div>
                 <button type="submit" class="button" onclick="checkLogin(event)">Login</button>
     </div>

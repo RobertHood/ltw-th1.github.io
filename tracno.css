@@ -57,11 +57,11 @@
 
 .info-side{
     display: grid;
-    grid-template-rows: 1fr 2fr 6fr;
+    grid-template-rows: 1fr 2fr;
     width: 85%;
     margin:  0 30px;
     border-radius: 10px;
-    max-height: 450px;
+    max-height: 300px;
     column-gap: 10px;
     row-gap: 0;
     border: 2px solid rgba(0, 0, 0, 1);
@@ -79,17 +79,18 @@
     padding: 0 20px;
 }
 
-.answer-check{
-    display: grid;
-    grid-template-rows:repeat(4, 1fr);
-    grid-template-columns: repeat(10, 1fr);
-    gap: 5px;
-    padding: 0 20px;
+.test-taker-info p{
+    padding:20px;
 }
 
-.answer-check .answer-no-check{
-    display: flex;
-    justify-content: center;
-    border: 2px solid black;
-    max-height: 40px;
+textarea{
+    padding: 5px;
+}
+
+textarea::placeholder{
+    padding:5px;
+    line-height: 1.5;
+    resize: vertical;
+    min-height: 100px;
+
 }
