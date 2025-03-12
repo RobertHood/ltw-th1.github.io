@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    caret-color: transparent;
+    font-family: 'Roboto'; 
+}
+
+a{
+    text-decoration: none;
+}
+body{
+    background-image: url(asset/signin-bg.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.sign-in{
+    position: relative;
+    width: 500px;
+    height: 480px;
+    /* background: rgba(0, 0, 0, .5); */
+    border-radius: 40px;
+    box-shadow:0 0 30px rgba(0, 0, 0, .2);
+    border: 2px solid rgba(255,255,255,.2);
+    padding: 20px
+}
+
+.inputbox input{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    border: 2px solid rgba(0, 0, 0, .05);
+    border-radius: 40px;
+    font-size: 13px;
+    color: #000;
+    margin: 10px 0;
+    padding: 15px;
+}
+
+.form-box h2{
+    text-align: center;
+    font-size: 36px;
+}
+
+.button{
+    width: 100%;
+    height: 45px;
+    background:  blue;
+    margin: 10px 0;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+}

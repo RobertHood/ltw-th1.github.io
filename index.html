@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+        rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> -->
+        
+        <title>Sign in</title>
+    </head>
+<body>
+    <div class="sign-in">
+        <button onclick="window.location.href='tracno.html'">to tracno</button>
+        
+        <div id= "login-box" class="form-box loginbox">
+            <h2>Welcome</h2>
+                <form onsubmit="checkLogin(event)">
+                <!--input field-->
+                <div class="inputbox">
+                    <input id="name" class="username" name="signin" placeholder="Name">
+                    <input id="dob" type="date" class="dob" name="dob" placeholder="Date-of-birth">
+                    <input id="id-number" class="id-number" name="id-number" placeholder="ID-Number">
+                    <input id="address" type="text" class="address" name="address" placeholder="Address">
+                    
+                </div>
+                <button type="submit" class="button">Login</button>
+    </div>
+</body>
+</html>
