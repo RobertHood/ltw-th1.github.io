@@ -10,7 +10,7 @@
         href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
         rel="stylesheet"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> -->
-        
+        <script src="index.js"></script>
         <title>Sign in</title>
     </head>
 <body>
@@ -19,7 +19,7 @@
         
         <div id= "login-box" class="form-box loginbox">
             <h2>Welcome</h2>
-                <form onsubmit="checkLogin(event)">
+                <form>
                 <!--input field-->
                 <div class="inputbox">
                     <input id="name" class="username" name="signin" placeholder="Name">
@@ -28,7 +28,7 @@
                     <input id="address" type="text" class="address" name="address" placeholder="Address">
                     
                 </div>
-                <button type="submit" class="button">Login</button>
+                <button type="submit" class="button" onclick="checkLogin(event)">Login</button>
     </div>
 </body>
 </html>
