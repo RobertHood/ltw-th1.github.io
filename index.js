@@ -1,8 +1,4 @@
-global_name = "";
-global_dob = "";
-global_id = "";
-global_add = "";
-
+let count = 0;
 function checkLogin(event){
     event.preventDefault();
     let name = document.getElementById("name").value;
@@ -21,7 +17,7 @@ function checkLogin(event){
         if(String(id).length !== 12){
             alert("ID number must be 12 numbers long");
         }
-        else if(dob > Date.now){
+        else if(dob > Date.now()){
             alert("Date of birth is invalid");
         }else
         window.location.href='tracno.html';
@@ -29,20 +25,17 @@ function checkLogin(event){
 }
 
 function survey(event){
-    event.preventDefault();
-
-    const urlParams = new URLSearchParams(window.location.search);
+    if (count === 0){
+        event.preventDefault();
+        window.location.href = "#";
+        alert("Please recheck your answer once again!");
+        count++;
+    }
+    else if (count === 1){
+        window.location.href = 'index.html';
+        alert("Thank you for taking this survey!");
+        count = 0;
+        return;
+    }
     
-    
-    let survey_info_name = document.getElementById("taker-name");
-    let survey_info_dob = document.getElementById("taker-dob");
-    let survey_info_id = document.getElementById("taker-id");
-    let survey_info_add = document.getElementById("taker-add");
-
-    survey_info_name.textContent = "Name: " + global_name;
-    survey_info_dob.textContent = "DOB: " + global_dob;
-    survey_info_id.textContent = "ID: " + global_id;
-    survey_info_add.textContent = "Add: " + global_add; 
-
-    return;
 }
