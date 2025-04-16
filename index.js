@@ -11,28 +11,8 @@ function survey(event) {
         answers: []
     };
 
-    // Collect answers
-    document.querySelectorAll(".part").forEach((part, index) => {
-        const questionNo = `Q${index + 1}`;
-        let answer = "";
-
-        if (part.classList.contains("likert-scale")) {
-            answer = part.querySelector("input[type='radio']:checked")?.value || "";
-        } else if (part.classList.contains("slider")) {
-            answer = part.querySelector("input[type='range']").value;
-        } else if (part.classList.contains("skills")) {
-            answer = Array.from(part.querySelectorAll("input[type='checkbox']:checked"))
-                .map((checkbox) => checkbox.value)
-                .join(", ");
-        } else if (part.classList.contains("open-answers")) {
-            answer = part.querySelector("textarea").value;
-        }
-
-        userData.answers.push({ question_no: questionNo, answer });
-    });
-
     // Send data to server
-    fetch("/submit-survey", {
+    fetch("/submit-data", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -42,4 +22,6 @@ function survey(event) {
         .then((response) => response.text())
         .then((message) => alert(message))
         .catch((error) => console.error("❌ Error submitting survey:", error));
+
+    window.location.href = "tracno.html";
 }

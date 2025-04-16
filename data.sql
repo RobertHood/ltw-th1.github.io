@@ -1,5 +1,4 @@
-CREATE DATABASE SurveyDB;
-
+CREATE DATABASE IF NOT EXISTS SurveyDB;
 USE SurveyDB;
 
 CREATE TABLE Users (
@@ -18,3 +17,6 @@ CREATE TABLE Answers (
     answer TEXT,
     FOREIGN KEY (user_id) REFERENCES Users(id)
 );
+
+SELECT * FROM USERS;
+SELECT * FROM ANSWERS;

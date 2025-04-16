@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/RobertHood/ltw-th1.github.io#readme",
   "dependencies": {
+    "body-parser": "^2.2.0",
     "express": "^5.1.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.14.0"
