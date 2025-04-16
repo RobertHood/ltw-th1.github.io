@@ -1,41 +1,45 @@
-let count = 0;
-function checkLogin(event){
+function survey(event) {
     event.preventDefault();
-    let name = document.getElementById("name").value;
-    let dob = document.getElementById("dob").value;
-    let id = document.getElementById("id-number").value;
-    let address = document.getElementById("address").value;
 
-    global_name = name;
-    global_dob = dob;
-    global_id = id;
-    global_add = address;    
-    if (name === "" || dob === "" || id === "" || address === ""){
-        alert("Please fill in all information");
-    }
-    else{
-        if(String(id).length !== 12){
-            alert("ID number must be 12 numbers long");
+    const formData = new FormData(event.target);
+    const userData = {
+        name: formData.get("name"),
+        major: formData.get("major"),
+        id_number: formData.get("id-number"),
+        class: formData.get("class"),
+        email: formData.get("email"),
+        answers: []
+    };
+
+    // Collect answers
+    document.querySelectorAll(".part").forEach((part, index) => {
+        const questionNo = `Q${index + 1}`;
+        let answer = "";
+
+        if (part.classList.contains("likert-scale")) {
+            answer = part.querySelector("input[type='radio']:checked")?.value || "";
+        } else if (part.classList.contains("slider")) {
+            answer = part.querySelector("input[type='range']").value;
+        } else if (part.classList.contains("skills")) {
+            answer = Array.from(part.querySelectorAll("input[type='checkbox']:checked"))
+                .map((checkbox) => checkbox.value)
+                .join(", ");
+        } else if (part.classList.contains("open-answers")) {
+            answer = part.querySelector("textarea").value;
         }
-        else if(dob > Date.now()){
-            alert("Date of birth is invalid");
-        }else
-        window.location.href='tracno.html';
-    }
-}
 
-function survey(event){
-    if (count === 0){
-        event.preventDefault();
-        window.location.href = "#";
-        alert("Please recheck your answer once again!");
-        count++;
-    }
-    else if (count === 1){
-        window.location.href = 'index.html';
-        alert("Thank you for taking this survey!");
-        count = 0;
-        return;
-    }
-    
+        userData.answers.push({ question_no: questionNo, answer });
+    });
+
+    // Send data to server
+    fetch("/submit-survey", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userData)
+    })
+        .then((response) => response.text())
+        .then((message) => alert(message))
+        .catch((error) => console.error("❌ Error submitting survey:", error));
 }

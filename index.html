@@ -20,13 +20,16 @@
             <h2>Welcome</h2>
                 <form action="tracno.html" method="get" onsubmit="survey(event)">
                 <!--input field-->
-                <div class="inputbox">
-                    <input id="name" class="username" name="name" placeholder="Name">
-                    <input id="dob" type="date" class="dob" name="dob" placeholder="Date-of-birth">
-                    <input id="id-number" class="id-number" name="id-number" placeholder="ID-Number">
-                    <input id="address" type="text" class="address" name="address" placeholder="Address">
-                </div>
-                <button type="submit" class="button" onclick="checkLogin(event)">Login</button>
+                    <div class="inputbox">
+                        <input id="name" class="username" name="name" placeholder="Tên" required>
+                        <input id="major" type="text" class="major" name="major" placeholder="Ngành học" required>
+                        <input id="id-number" class="id-number" name="id-number" placeholder="Mã sinh viên" required>
+                        <input id="class" type="text" class="class" name="class" placeholder="Lớp" required>
+                        <input id="email" type="text" class="email" name="email" placeholder="Email" required>
+                    </div>
+                <button type="submit" class="button">Login</button>
+                </form>
+            </div>
     </div>
 </body>
 </html>
